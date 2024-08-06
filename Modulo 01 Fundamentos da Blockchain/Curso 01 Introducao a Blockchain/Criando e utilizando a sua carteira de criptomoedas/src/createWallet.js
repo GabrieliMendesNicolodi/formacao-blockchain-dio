@@ -23,12 +23,7 @@ let root = bip32.fromSeed(seed, network)
 let account = root.derivePath(path)
 let node = account.derive(0).derive(0)
 
-
-//ATUALIZAÇÃO DE CÓDIGO
-/** A rede testnet está aceitando endereços do tipo Bech32, que começam com a letra "t".
-ou seja, eram com endereços do tipo Bech32). */
-
-let bech32Address = bitcoin.payments.p2wpkh({
+let btcAddress = bitcoin.payments.p2wpkh({
 
     pubkey: node.publicKey,
 
@@ -37,7 +32,7 @@ let bech32Address = bitcoin.payments.p2wpkh({
 }).address
 
 console.log("Carteira gerada")
-console.log("Endereço: ", bech32Address)
+console.log("Endereço: ", btcAddress)
 console.log("Chave privada:", node.toWIF())
 console.log("Seed", mnemonic)
 
